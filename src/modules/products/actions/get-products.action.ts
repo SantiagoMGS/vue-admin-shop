@@ -1,5 +1,6 @@
 import { tesloApi } from '@/api/tesloApi';
 import type { Product } from '../interfaces/product.interface';
+import { getProuctImageAction } from './get-product-image.action';
 
 export const GetProductsAction = async (page: number = 1, limit: number = 10) => {
   try {
@@ -7,8 +8,10 @@ export const GetProductsAction = async (page: number = 1, limit: number = 10) =>
       `/products?limit=${limit}&offset=${page * limit}`,
     );
 
-    console.log(data);
-    return data;
+    return data.map((product) => ({
+      ...product,
+      images: product.images.map(getProuctImageAction),
+    }));
   } catch (error) {
     throw new Error('Error getting products');
   }

@@ -586,10 +586,16 @@
       </a>
     </article>
   </section>
+  <div>Loading: {{ isLoading }}</div>
+  <div>{{ products }}</div>
 </template>
 
 <script lang="ts" setup>
 import { GetProductsAction } from '@/modules/products/actions';
+import { useQuery } from '@tanstack/vue-query';
 
-GetProductsAction();
+const { data: products, isLoading } = useQuery({
+  queryKey: ['products', { page: 1 }],
+  queryFn: () => GetProductsAction(),
+});
 </script>
