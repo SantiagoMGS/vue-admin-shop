@@ -94,9 +94,13 @@
     <p>Espere por favor</p>
   </div>
   <ProductList v-else :products="products" />
+
+  <!-- Pagination -->
+  <ButtonPagination />
 </template>
 
 <script lang="ts" setup>
+import ButtonPagination from '@/modules/common/components/ButtonPagination.vue';
 import { GetProductsAction } from '@/modules/products/actions';
 import ProductList from '@/modules/products/components/ProductList.vue';
 import { useQuery } from '@tanstack/vue-query';
