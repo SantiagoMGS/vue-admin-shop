@@ -4,7 +4,7 @@
   >
     <a href="#">
       <div class="relative flex items-end overflow-hidden rounded-xl">
-        <img :src="product.images[0]" :alt="product.title" />
+        <img :src="product.images[0]" :alt="product.title" class="h-[250px] object-cover" />
         <div
           class="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600"
         >
